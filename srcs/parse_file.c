@@ -6,16 +6,16 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/09 03:23:51 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:52:48 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_texture_on_file(char *line)
+int	ft_is_texture(char *line)
 {
 	int			i;
-	static char	*textures[] = {"NO", "SO", "WE", "EA", "F", "C", NULL};
+	const char	*textures[] = {"NO", "SO", "WE", "EA", "F", "C", NULL};
 
 	if (!line)
 		return (0);
@@ -26,70 +26,67 @@ int	ft_texture_on_file(char *line)
 	return (0);
 }
 
-int	ft_count_map(t_cosas *c)
+void	ft_count_things(t_cosas *c)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	while (c->map.file[i])
+	while (c->map.file[i] && c->map.t_count < 6)
 	{
-		if (ft_texture_on_file(c->map.file[i]) == 0
-			&& ft_strlen(c->map.file[i]) > 1)
-		{
-			j++;
-			i++;
-		}
-		else
-			i++;
+		if (ft_is_texture(c->map.file[i]))
+			c->map.t_count++;
+		i++;
 	}
-	return (j);
+	if (c->map.t_count != 6)
+		ft_print_error("Missing textures in the file.");
+	while (c->map.file[i] && ft_str_is_space(c->map.file[i]))
+		i++;
+	while (c->map.file[i] && c->map.file[i][0] != '\0')
+	{
+		c->map.m_count++;
+		i++;
+	}
+	if (c->map.m_count == 0)
+		ft_print_error("The map is not at the end.");
 }
 
-void	ft_store_textures(t_cosas *c)
+void	ft_copy_textures(t_cosas *c, int *i, int *j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	c->map.textures = (char **)malloc((6 + 1) * sizeof(char *));
-	while (c->map.file[i])
+	c->map.t_count = 0;
+	while (c->map.file[++(*i)] && c->map.t_count < 6)
 	{
-		if (ft_texture_on_file(c->map.file[i]))
+		if (ft_is_texture(c->map.file[(*i)]))
 		{
-			c->map.textures[j] = ft_strdup(ft_strtrim(c->map.file[i], "\n"));
-			j++;
-			i++;
+			c->map.textures[(*j)++] = ft_strdup(c->map.file[(*i)]);
+			c->map.t_count++;
 		}
-		else
-			i++;
 	}
-	c->map.textures[6] = NULL;
 }
 
-void	ft_store_map(t_cosas *c)
+void	ft_copy_map(t_cosas *c, int *i, int *j)
+{
+	while (c->map.file[(*i)] && c->map.file[(*i)][0] != '\0')
+	{
+		c->map.map[(*j)++] = ft_strdup(c->map.file[(*i)]);
+		(*i)++;
+	}
+}
+
+
+void	ft_store_things(t_cosas *c)
 {
 	int	i;
 	int	j;
-	int	other;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	other = ft_count_map(c);
-	c->map.map = (char **)malloc((other + 1) * sizeof(char *));
-	while (c->map.file[i])
-	{
-		if (ft_texture_on_file(c->map.file[i]) == 0
-			&& ft_strlen(c->map.file[i]) > 1)
-		{
-			c->map.map[j] = ft_strdup(ft_strtrim(c->map.file[i], "\n"));
-			j++;
-			i++;
-		}
-		else
-			i++;
-	}
-	c->map.map[other] = NULL;
+	c->map.map = (char **)ft_calloc((c->map.m_count + 1), sizeof(char *));
+	c->map.textures = (char **)ft_calloc((c->map.t_count + 1), sizeof(char *));
+	if (c->map.map == NULL || c->map.textures == NULL)
+		ft_print_error("Malloc KO");
+	ft_copy_textures(c, &i, &j);
+	j = 0;
+	while (c->map.file[i] && ft_str_is_space(c->map.file[i]))
+		i++;
+	ft_copy_map(c, &i, &j);
 }

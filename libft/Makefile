@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 20:21:59 by psegura-          #+#    #+#              #
-#    Updated: 2023/01/26 02:28:18 by psegura-         ###   ########.fr        #
+#    Updated: 2023/03/11 17:34:10 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRCS_NAME = 						\
 			ft_striteri.c			\
 			ft_strdup.c				\
 			ft_strndup.c			\
+									\
+			ft_str_is_space.c		\
 									\
 			ft_memset.c				\
 			ft_memcpy.c				\

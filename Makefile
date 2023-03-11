@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 13:27:49 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/09 03:34:37 by psegura-         ###   ########.fr        #
+#    Updated: 2023/03/11 16:54:25 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 LIB = libft/libft.a
 
 CC = gcc
-CFLAGS = -g3 -fsanitize=address -Wall -Wextra -Werror -Ofast -I inc -I libft
+CFLAGS = -g3 -fsanitize=address -Wall -Wextra -Werror -O3 -I inc -I libft
 
 FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit 
 

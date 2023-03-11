@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:01:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/09 03:48:15 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:34:20 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_store_map(t_cosas *c);
 //Utils
 void	ft_perror(char *str);
 void	ft_print_error(char *str);
+// int		ft_str_is_space(char *str);
 
 //Map Validator
 
@@ -40,5 +41,8 @@ int		ft_exit(void);
 //Draw
 
 //Floof_fill
+
+void	ft_count_things(t_cosas *c);
+void	ft_store_things(t_cosas *c);
 
 #endif

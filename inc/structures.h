@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/09 03:44:15 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:31:52 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_map {
 	int		file_size;
 	char	**map;
 	char	**textures;
+	int		t_count;
+	int		m_count;
 	t_reqs	reqs;
 }	t_map;
 
@@ -84,8 +86,7 @@ typedef struct s_cosas {
 	int			moves_count;
 }	t_cosas;
 
-
-typedef struct	s_point
+typedef struct s_point
 {
 	int			x;
 	int			y;
