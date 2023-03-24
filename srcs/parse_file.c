@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/11 17:52:48 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:01:30 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	ft_copy_map(t_cosas *c, int *i, int *j)
 		(*i)++;
 	}
 }
-
 
 void	ft_store_things(t_cosas *c)
 {

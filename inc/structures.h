@@ -6,90 +6,159 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:36:31 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/11 14:31:52 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 20:37:55 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-//Map requiriments
-typedef struct s_reqs {
-	int		c_count;
-	int		e_count;
-	int		p_count;
-}	t_reqs;
+// //Map requiriments
+// typedef struct s_reqs {
+// 	int		c_count;
+// 	int		e_count;
+// 	int		p_count;
+// }	t_reqs;
 
-typedef struct s_count {
-	int		i;
-	int		j;
-}	t_count;
+// typedef struct s_count {
+// 	int		i;
+// 	int		j;
+// }	t_count;
 
-typedef struct s_args {
-	int		argc;
-	char	**argv;
-}	t_args;
+// typedef struct s_args {
+// 	int		argc;
+// 	char	**argv;
+// }	t_args;
 
-typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
+// typedef struct s_data {
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// }	t_data;
 
-//Map & data map
-typedef struct s_map {	
-	char	**file;
-	int		file_size;
-	char	**map;
-	char	**textures;
-	int		t_count;
-	int		m_count;
-	t_reqs	reqs;
+// //Map & data map
+// typedef struct s_map {	
+// 	char	**file;
+// 	int		file_size;
+// 	char	**map;
+// 	char	**textures;
+// 	int		t_count;
+// 	int		m_count;
+// 	t_reqs	reqs;
+// }	t_map;
+
+// //Player
+// typedef struct s_player {
+// 	int		x;
+// 	int		y;
+// }	t_player;
+
+// //Meta
+// typedef struct s_meta {
+// 	void	*mlx;
+// 	void	*mlx_win;
+// 	int		img_w;
+// 	int		img_h;
+// 	int		win_w;
+// 	int		win_h;
+// }	t_meta;
+
+// //Sprites
+// typedef struct s_xpm {
+// 	void	*empty;
+// 	void	*wall;
+// 	void	*collectiblle;
+// 	void	*exit;
+// 	void	*player;
+// 	void	*enemy;
+// }	t_xpm;
+
+// typedef struct s_cosas {
+// 	t_args		args;
+// 	t_map		map;
+// 	t_player	p;
+// 	t_xpm		xpm;
+// 	t_meta		meta;
+// 	t_data		img;
+// 	int			fd;
+// 	int			moves_count;
+// }	t_cosas;
+
+typedef struct s_map {
+	char	*dir;
+	int		width;
+	int		height;
+	int		max_alt;
+	int		**xyzc;
 }	t_map;
 
-//Player
-typedef struct s_player {
+typedef struct s_image {
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}	t_image;
+
+typedef struct s_raycasting {
 	int		x;
-	int		y;
-}	t_player;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	perp_wall_dist;
+}	t_raycasting;
 
-//Meta
-typedef struct s_meta {
-	void	*mlx;
-	void	*mlx_win;
-	int		img_w;
-	int		img_h;
-	int		win_w;
-	int		win_h;
-}	t_meta;
+typedef struct s_mlx {
+	void			*mlx;
+	void			*win;
+	void			*img;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+	int				multiplicator;
+	int				multi_z;
+	int				win_w;
+	int				win_h;
+	int				size_x;
+	int				size_y;
+	double			pos_x;
+	double			pos_y;
+	double			dir_x;
+	double			dir_y;
+	double			teta;
+	double			plane_x;
+	double			plane_y;
+	t_image			tex_north;
+	t_image			tex_south;
+	t_image			tex_east;
+	t_image			tex_west;
+	int				x;
+	int				y;
+	t_map			map;
+}	t_mlx;
 
-//Sprites
-typedef struct s_xpm {
-	void	*empty;
-	void	*wall;
-	void	*collectiblle;
-	void	*exit;
-	void	*player;
-	void	*enemy;
-}	t_xpm;
-
-typedef struct s_cosas {
-	t_args		args;
-	t_map		map;
-	t_player	p;
-	t_xpm		xpm;
-	t_meta		meta;
-	t_data		img;
-	int			fd;
-	int			moves_count;
-}	t_cosas;
-
-typedef struct s_point
-{
-	int			x;
-	int			y;
-}				t_point;
+typedef struct s_vtex {
+	int		i;
+	double	wallx;
+	int		tex[3];
+	int		line_h;
+	double	pos[2];
+}	t_vtex;
 
 #endif

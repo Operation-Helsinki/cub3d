@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 13:27:49 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/11 16:54:25 by psegura-         ###   ########.fr        #
+#    Updated: 2023/03/24 21:06:12 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,21 @@ NAME = cub3D
 
 SRCS =							\
 		srcs/main.c				\
+		srcs/draw.c				\
+		srcs/key.c				\
+		srcs/raycasting.c		\
+		srcs/init_mlx.c			\
 		srcs/utils.c			\
-		srcs/store_file.c		\
-		srcs/parse_file.c		\
-		srcs/flood_fill.c		\
+		# srcs/store_file.c		\
+		# srcs/parse_file.c		\
+		# srcs/color.c			\
 
 OBJS = $(SRCS:.c=.o)
 
 LIB = libft/libft.a
 
 CC = gcc
-CFLAGS = -g3 -fsanitize=address -Wall -Wextra -Werror -O3 -I inc -I libft
+CFLAGS = -Wall -Wextra -Werror -O3 -I inc -I libft -g3 -fsanitize=address
 
 FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit 
 

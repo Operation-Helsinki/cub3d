@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:18:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/08 17:32:04 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 16:24:51 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ Printf, Strerror, Perror
 Malloc, Free, Exit
 */
 # include <stdlib.h>
+
+# include <math.h>
+# include "mlx.h"
 
 #endif

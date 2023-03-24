@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:11:20 by psegura-          #+#    #+#             */
-/*   Updated: 2023/01/07 20:01:36 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:08:46 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,17 @@
 # define FALSE 			0
 # define TEXT_COLOR		0xff6e6e
 # define NUMBER_COLOR	0xa4ffff
-
-//Errores
-# define INVALID_MAP	-1
-# define INVALID_FD		-2
-# define INVALID_EXT	-3
-# define INVALID_CHAR	-4
-# define SQUARE_MAP		-10
-# define INVALID_P		-11
-# define INVALID_SPRITE	-12
-# define INVALID_C		-13
-# define INVALID_E		-14
-# define NOT_CLOSED		-15
-# define INVALID_PATH	-16
-# define DEAD			-17
-# define WIN			-18
-# define DIDNT_CHOOSED	-19
+# define MS				1
+# define ROT_MS			0.2
 
 //Map char
-# define VALID_CHARS		"01CEPB"
+# define VALID_CHARS		"01NSEW"
 # define EMPTY_CHAR			'0'
 # define WALL_CHAR			'1'
-# define COLLECTIBLE_CHAR	'C'
-# define EXIT_CHAR			'E'
-# define PLAYER_CHAR		'P'
-# define ENEMIE_CHAR		'B'
+# define NORTH_CHAR			'E'
+# define SOUTH_CHAR			'S'
+# define EAST_CHAR			'E'
+# define WEST_CHAR			'W'
 
 //Keys
 # define ESC	53
