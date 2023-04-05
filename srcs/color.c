@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:40:34 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/16 16:03:56 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/25 01:54:29 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*int_to_hex(int num)
 
 	if (num > 0xff)
 		ft_print_error("Color: Number out of range!");
-	hex = malloc(sizeof(char) * 4);
+	hex = ft_calloc(4, sizeof(char));
 	if (!hex)
 		return (NULL);
 	hex[0] = hexchar[(num >> 4) & 0xf];
@@ -33,19 +33,19 @@ char	*int_to_color(int a, int b, int c)
 	char	*final;
 	char	*aux;
 
-	final = (char *)malloc(8 * sizeof(char));
+	final = (char *)ft_calloc(9, sizeof(char));
 	if (!final)
 		ft_print_error("Malloc KO!");
 	final[0] = '0';
 	final[1] = 'x';
 	aux = int_to_hex(a);
-	ft_strlcat(final, aux, 4);
+	ft_strlcat(final, aux, 5);
 	free(aux);
 	aux = int_to_hex(b);
-	ft_strlcat(final, aux, 6);
+	ft_strlcat(final, aux, 7);
 	free(aux);
 	aux = int_to_hex(c);
-	ft_strlcat(final, aux, 8);
+	ft_strlcat(final, aux, 9);
 	free(aux);
 	return (final);
 }

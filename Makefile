@@ -6,7 +6,7 @@
 #    By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 13:27:49 by psegura-          #+#    #+#              #
-#    Updated: 2023/03/24 21:06:12 by psegura-         ###   ########.fr        #
+#    Updated: 2023/03/25 03:44:28 by psegura-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,11 @@ SRCS =							\
 		srcs/key.c				\
 		srcs/raycasting.c		\
 		srcs/init_mlx.c			\
+		srcs/init_parse.c		\
 		srcs/utils.c			\
-		# srcs/store_file.c		\
-		# srcs/parse_file.c		\
-		# srcs/color.c			\
+		srcs/store_file.c		\
+		srcs/parse_file.c		\
+		srcs/color.c			\
 
 OBJS = $(SRCS:.c=.o)
 

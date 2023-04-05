@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 02:15:35 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/11 17:17:01 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/25 01:02:27 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_file_size(t_cosas *c)
 		line = get_next_line(c->fd);
 		if (line)
 		{
-			c->map.file_size++;
+			c->file.file_size++;
 			free(line);
 		}
 		else
@@ -44,14 +44,14 @@ void	ft_store_file(t_cosas *c)
 	c->fd = open(c->args.argv[1], O_RDONLY);
 	if (c->fd == -1)
 		ft_perror("");
-	c->map.file = (char **)malloc((c->map.file_size + 2) * sizeof(char *));
-	c->map.file[c->map.file_size] = NULL;
-	while (i < c->map.file_size)
+	c->file.file = (char **)malloc((c->file.file_size + 2) * sizeof(char *));
+	c->file.file[c->file.file_size] = NULL;
+	while (i < c->file.file_size)
 	{
 		aux = get_next_line(c->fd);
-		c->map.file[i] = ft_strtrim(aux, "\n");
-		if (!c->map.file[i])
-			ft_free_matrix(c->map.file);
+		c->file.file[i] = ft_strtrim(aux, "\n");
+		if (!c->file.file[i])
+			ft_free_matrix(c->file.file);
 		free(aux);
 		i++;
 	}

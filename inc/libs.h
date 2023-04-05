@@ -6,7 +6,7 @@
 /*   By: psegura- <psegura-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 23:18:22 by psegura-          #+#    #+#             */
-/*   Updated: 2023/03/24 16:24:51 by psegura-         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:14:30 by psegura-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ Malloc, Free, Exit
 
 # include <math.h>
 # include "mlx.h"
+# include <limits.h>
 
 #endif
